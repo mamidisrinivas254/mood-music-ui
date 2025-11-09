@@ -1,0 +1,143 @@
+:root {
+  --bg: #0b1020;
+  --fg: #e9eef7;
+  --muted: #a9b2c7;
+  --card: rgba(255,255,255,0.08);
+  --stroke: rgba(255,255,255,0.12);
+  --btn: #4f7cff;
+  --btn-text: #fff;
+
+  
+  --grad-a: #4f7cff;
+  --grad-b: #9b72ff;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: radial-gradient(1200px 700px at 10% 10%, var(--grad-a) -10%, transparent 60%),
+              radial-gradient(1000px 600px at 90% 0%, var(--grad-b) -10%, transparent 60%),
+              linear-gradient(180deg, #0b1020, #0a0e1a 50%, #080c16);
+  color: var(--fg);
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.app {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px clamp(16px, 5vw, 40px);
+}
+.brand { font-weight: 700; letter-spacing: .5px; }
+
+.actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.btn {
+  border: 1px solid var(--stroke);
+  background: var(--card);
+  color: var(--fg);
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform .12s ease, background .2s ease, border-color .2s ease;
+}
+.btn:hover { transform: translateY(-1px); border-color: #7b89ff55; }
+.btn.primary { background: linear-gradient(135deg, var(--grad-a), var(--grad-b)); border-color: transparent; color: var(--btn-text); }
+.btn.ghost { background: transparent; }
+
+main { padding: 0 clamp(16px, 5vw, 40px) 40px; }
+
+.hero {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  margin: 10px 0 22px;
+}
+.emoji { font-size: 64px; filter: drop-shadow(0 12px 18px rgba(0,0,0,.35)); }
+h1 { margin: 0; font-size: clamp(28px, 4vw, 40px); letter-spacing: .5px; }
+h2 { margin: 0 0 8px; font-size: clamp(20px, 3vw, 28px); }
+
+.mood-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(120px, 1fr));
+  gap: 12px;
+  margin: 6px 0 22px;
+}
+@media (max-width: 920px) {
+  .mood-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 520px) {
+  .mood-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.mood-card {
+  display: grid;
+  place-items: center;
+  gap: 10px;
+  padding: 18px 10px;
+  border-radius: 14px;
+  border: 1px solid var(--stroke);
+  background: var(--card);
+  color: var(--fg);
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform .12s ease, border-color .2s ease, background .2s ease;
+}
+.mood-card:hover { transform: translateY(-2px); border-color: #7b89ff55; }
+.mood-card span { font-size: 28px; }
+
+.glass {
+  border: 1px solid var(--stroke);
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.35);
+  backdrop-filter: blur(6px);
+}
+
+.playlist { padding: 18px; }
+.row { display: flex; gap: 12px; align-items: center; }
+.space-between { justify-content: space-between; }
+.songs { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 8px; }
+.songs li {
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--stroke);
+  background: rgba(255,255,255,0.04);
+}
+.songs li .idx { opacity: .75; }
+.songs a {
+  color: var(--fg);
+  text-decoration: none;
+  border-bottom: 1px dashed #8aa2ff99;
+}
+.songs a:hover { text-decoration: underline; }
+
+.footer {
+  text-size:14px;
+  text-align: center;
+  padding: 30px 25px 45px;
+}
+
+.muted { color: var(--muted); }
+.tiny { font-size: 12px; }
+
+
+body[data-theme="happy"]     { --grad-a:#ffe26f; --grad-b:#ff8a5b; }
+body[data-theme="sad"]       { --grad-a:#3b82f6; --grad-b:#6366f1; }
+body[data-theme="energetic"] { --grad-a:#ff5f6d; --grad-b:#ffc371; }
+body[data-theme="chill"]     { --grad-a:#34d399; --grad-b:#06b6d4; }
+body[data-theme="angry"]     { --grad-a:#ef4444; --grad-b:#f59e0b; }
+body[data-theme="romantic"]  { --grad-a:#fb7185; --grad-b:#c084fc; }

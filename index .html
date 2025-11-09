@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Mood-Based Music UI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">🎧 Mood Music</div>
+      <nav class="actions">
+        <button id="randomBtn" class="btn ghost">🎲 Random Mood</button>
+        <button id="shareBtn" class="btn ghost">🔗 Share</button>
+        
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero glass">
+        <div id="moodEmoji" class="emoji">😊</div>
+        <div>
+          <h1 id="moodTitle">Happy</h1>
+          <p id="moodTagline" class="muted">Bright vibes, upbeat energy.</p>
+        </div>
+      </section>
+
+      <section class="mood-grid">
+        <!-- Mood cards -->
+        <button class="mood-card" data-mood="happy">
+          <span>😊</span>
+          <b>Happy</b>
+        </button>
+        <button class="mood-card" data-mood="sad">
+          <span>😢</span>
+          <b>Sad</b>
+        </button>
+        <button class="mood-card" data-mood="energetic">
+          <span>🔥</span>
+          <b>Energetic</b>
+        </button>
+        <button class="mood-card" data-mood="chill">
+          <span>😌</span>
+          <b>Chill</b>
+        </button>
+        <button class="mood-card" data-mood="angry">
+          <span>😡</span>
+          <b>Angry</b>
+        </button>
+        <button class="mood-card" data-mood="romantic">
+          <span>💞</span>
+          <b>Romantic</b>
+        </button>
+      </section>
+
+      <section class="glass playlist">
+        <div class="row space-between">
+          <h2>Suggested Tracks</h2>
+          <div>
+            <button id="readBtn" class="btn ghost">🗣 Read Out</button>
+          </div>
+        </div>
+        <ul id="songList" class="songs"></ul>
+    
+      </section>
+    </main>
+
+    <footer class="footer muted tiny">
+      Made by Mamidi Srinivas
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
